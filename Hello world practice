@@ -1,0 +1,18 @@
+using System;
+
+public class Program
+{
+
+  public weapons shotgun;
+  public void Main()
+{
+  shotgun=new shotgun();
+
+Console.WriteLine(shotgun.weaponname + "has ammo count of" + ammocount);    
+    }
+
+    public class Weapon {
+   public int ammocount=10; 
+   public string weaponname=shotgun;
+   public float firepower=55.6f;
+    }
