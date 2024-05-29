@@ -16,8 +16,31 @@ public class Program
 		  numberOfAttempts++;
 		  correctGuess = checkAnswer(answer, randomNumber, numberOfAttempts);
 		}
-	
-      
+		  Console.WriteLine("Let me get to know you. What's your favorite food?");
+        string[] favoriteFoods ={"pizza","hamburgers","hawaian BBQ","sushi","tacos"}; 
+		Console.WriteLine(favoriteFoods.Length);
+		foreach(var food in favoriteFoods){
+			Console.WriteLine(food);}
+		 for (int i = 0; i < favoriteFoods.Length; i++);
+		 Console.WriteLine("Enter your favorite food:");
+        string userInput = Console.ReadLine();
+		bool found = false;
+        foreach (string food in favoriteFoods)
+        {
+            if (userInput.Equals(food, StringComparison.OrdinalIgnoreCase))
+            {
+                found = true;
+                break;
+            }
+        }
+   if (found)
+        {
+            Console.WriteLine("I love " + userInput + "!");
+        }
+        else
+        {
+            Console.WriteLine("Sorry, that food is not in our list.");
+        }
 		}
 		 public static bool checkAnswer(int answer, int randomNumber, int numberOfAttempts){
 		 if (answer == randomNumber)
@@ -36,5 +59,3 @@ public class Program
 			 return false;
 		}
 	}
-
-	  
