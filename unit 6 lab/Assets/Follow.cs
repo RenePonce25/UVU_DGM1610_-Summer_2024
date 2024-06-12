@@ -5,12 +5,10 @@ using UnityEngine;
 
 public class Follow : MonoBehaviour
 {
-   public Transform objectTofollow;
-   public float followSpeed = 1;
-
-   private void Update()
+   public Transform player;
+   public Vector3 offset;
+   void Update()
    {
-      var delta = objectTofollow.position - transform.position;
-      transform.position += delta * Time.deltaTime * followSpeed;
+       transform.position = player.position + offset;
    }
 }
