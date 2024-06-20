@@ -1,28 +1,57 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlaneControls : MonoBehaviour
 {
-    public Rigidbody plane;
-    public float planeSpeed = 200f;
-    public float pitchSpeed;
-    public float turnSpeed;
-    private float forwardMovment = 1000f;
-    private float turningMovment; 
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public float throttleSpeed = 0.1f;
+    public float maxThrust = 200f;
+    public float responsiveness = 10f;
+
+    private float throttle;
+    private float roll;
+    private float pitch;
+    private float yaw;
+
+    private float responseMod {
+        get
+        {
+            return (rb.mass / 10f) * responsiveness;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private Rigidbody rb;
+    [SerializeField] Transform propeller;
+
+    private void Awake()
     {
-        turningMovment = Input.GetAxis("Horizontal");
-       
-        plane.AddForce(0,0,forwardMovment * Time.deltaTime);
-        transform.Rotate(Vector3.up,forwardMovment * turningMovment * Time.deltaTime );
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void HandleInputs()
+    {
+        roll = Input.GetAxis("Roll");
+        pitch = Input.GetAxis("Pitch");
+         yaw= Input.GetAxis("Yaw");
+
+         if (Input.GetKey(KeyCode.Space)) throttle += throttleSpeed;
+         else if (Input.GetKey(KeyCode.LeftControl)) throttle -= throttleSpeed;
+         throttle = Mathf.Clamp(throttle, 0f, 100f);
+         
+    }
+
+    private void Update()
+    {
+       HandleInputs();
+       propeller.Rotate(0, 0, 0.1f * throttle);
+    }
+
+    private void FixedUpdate()
+    {
+        rb.AddForce(transform.forward * maxThrust * throttle);
+        rb.AddTorque(transform.up * yaw * responseMod);
+        rb.AddTorque(transform.right * pitch * responseMod);
+        rb.AddTorque(-transform.forward * roll * responseMod);
     }
 }
