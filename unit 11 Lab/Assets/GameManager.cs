@@ -14,11 +14,6 @@ public class GameManager : MonoBehaviour
     public bool isGameActive;
     public Button restartButton;
     public GameObject titleScreen;
-   
-    void Start()
-    {
-       
-    }
 
     IEnumerator SpawnTarget()
     {
@@ -58,7 +53,7 @@ public class GameManager : MonoBehaviour
         UpdateScore(0);
         gameOverText.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(false);
-        titleScreen.gameObject.SetActive(false);
+        titleScreen.gameObject.SetActive(true);
         
         
 
