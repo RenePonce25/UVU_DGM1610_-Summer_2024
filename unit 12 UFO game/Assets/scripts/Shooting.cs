@@ -19,7 +19,7 @@ public class Shooting : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision other)
     {
         Destroy(gameObject);
     }
