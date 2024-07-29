@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private float move;
     private float xlimit = 40f;
     private Rigidbody playerRb;
+    public ParticleSystem fireAnimation;
 
     public Transform fireCannon;
     public GameObject projectile;
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        
         move = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * move* Time.deltaTime * speed);
 

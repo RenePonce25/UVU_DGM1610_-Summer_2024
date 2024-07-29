@@ -3,16 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemPickup : MonoBehaviour
+public class UfoBehavior : MonoBehaviour
 {
-    public float boxSpeed = 10f;
+    public float ufoSpeed = 10f;
     private float xlimit = 40f;
     private Vector3 move = Vector3.right;
     
-    // Update is called once per frame
     void Update()
     {
-        transform.Translate(move * Time.deltaTime * boxSpeed);
+        transform.Translate(move * Time.deltaTime * ufoSpeed);
       
         if (transform.position.x < -xlimit)
         {
@@ -28,7 +27,5 @@ public class ItemPickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
-        Debug.Log("New Ammo Pickup.");
-       
     }
 }

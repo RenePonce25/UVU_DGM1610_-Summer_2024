@@ -19,8 +19,9 @@ public class Shooting : MonoBehaviour
         
     }
 
-    public void OnCollisionEnter(Collision other)
+    public void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
+        Debug.Log("hit");
     }
 }
