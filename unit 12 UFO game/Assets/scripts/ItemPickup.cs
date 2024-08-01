@@ -6,8 +6,8 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     public float boxSpeed = 10f;
-    private float xlimit = 40f;
-    private Vector3 move = Vector3.right;
+    private float xlimit = 52f;
+    private Vector3 move = Vector3.left;
     
     // Update is called once per frame
     void Update()
@@ -16,13 +16,9 @@ public class ItemPickup : MonoBehaviour
       
         if (transform.position.x < -xlimit)
         {
-            move = Vector3.right;
+           Destroy(gameObject);
         }
-        if (transform.position.x > xlimit)
-        {
-            move = Vector3.left;
-            Debug.Log("your mom");
-        }
+      
     }
 
     private void OnTriggerEnter(Collider other)
