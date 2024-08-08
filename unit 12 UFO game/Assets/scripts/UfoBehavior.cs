@@ -11,6 +11,7 @@ public class UfoBehavior : MonoBehaviour
     
     public ScoreManager scoreManager;
     public int scoreToGive;
+    public ParticleSystem destroyParticle;
 
      void Start()
     {
@@ -32,10 +33,15 @@ public class UfoBehavior : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        destroyParticle.Play();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         scoreManager.IncreaseScore(scoreToGive);
         Destroy(gameObject);
-       
+      
     }
 }

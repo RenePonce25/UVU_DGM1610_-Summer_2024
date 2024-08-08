@@ -1093,6 +1093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: 1
+  onStartSound: {fileID: 8300000, guid: 22827839807533943a45c9e1090a041d, type: 3}
 --- !u!114 &1962487402
 MonoBehaviour:
   m_ObjectHideFlags: 0

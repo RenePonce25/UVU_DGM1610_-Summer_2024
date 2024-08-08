@@ -153,6 +153,7 @@ MonoBehaviour:
   ufoSpeed: 10
   scoreManager: {fileID: 0}
   scoreToGive: 20
+  destroyParticle: {fileID: 417761080263594739, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
 --- !u!1 &3062373149976650575
 GameObject:
   m_ObjectHideFlags: 0

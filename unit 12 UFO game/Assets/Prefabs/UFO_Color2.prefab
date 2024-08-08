@@ -654,3 +654,4 @@ MonoBehaviour:
   ufoSpeed: 20
   scoreManager: {fileID: 0}
   scoreToGive: 1
+  destroyParticle: {fileID: 417761080263594739, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}

@@ -8,8 +8,10 @@ public class PlayerController : MonoBehaviour
     public float speed = 10f;
     private float move;
     private float xlimit = 40f;
-    private Rigidbody playerRb;
+    
     public ParticleSystem fireAnimation;
+    public AudioClip fireSound;
+    private AudioSource playerAudio;
 
     public Transform fireCannon;
     public GameObject projectile;
@@ -18,13 +20,13 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerRb = GetComponent<Rigidbody>();
+       
+        playerAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         
         move = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * move* Time.deltaTime * speed);
@@ -41,6 +43,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
             Instantiate(projectile, fireCannon.transform.position, projectile.transform.rotation);
+            fireAnimation.Play();
+            playerAudio.PlayOneShot(fireSound, 20.0f);
         }
 
     }
@@ -48,5 +52,6 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Destroy(other.gameObject);
+        
     }
 }
