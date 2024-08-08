@@ -150,6 +150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79950640deca8e488c108f00d41c3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ufoSpeed: 10
+  scoreManager: {fileID: 0}
+  scoreToGive: 20
 --- !u!1 &3062373149976650575
 GameObject:
   m_ObjectHideFlags: 0

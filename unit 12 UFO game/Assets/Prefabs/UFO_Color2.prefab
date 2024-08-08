@@ -652,3 +652,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ufoSpeed: 20
+  scoreManager: {fileID: 0}
+  scoreToGive: 1

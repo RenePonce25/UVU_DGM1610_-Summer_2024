@@ -9,6 +9,14 @@ public class UfoBehavior : MonoBehaviour
     private float xlimit = 40f;
     private Vector3 move = Vector3.right;
     
+    public ScoreManager scoreManager;
+    public int scoreToGive;
+
+     void Start()
+    {
+        scoreManager = GameObject.Find("Score Manager").GetComponent<ScoreManager>();
+    }
+
     void Update()
     {
         transform.Translate(move * Time.deltaTime * ufoSpeed);
@@ -26,6 +34,8 @@ public class UfoBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        scoreManager.IncreaseScore(scoreToGive);
         Destroy(gameObject);
+       
     }
 }
